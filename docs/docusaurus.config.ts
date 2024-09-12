@@ -7,17 +7,11 @@ const config: Config = {
   tagline: 'mobile apps for Evergreen(tm) libraries',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
   url: 'https://kenstir.github.io',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/hemlock-docs/',
+  baseUrl: '/',
+  projectName: 'hemlock-docs',
+  organizationName: 'kenstir',
   trailingSlash: false,
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'kenstir', // Usually your GitHub org/user name.
-  projectName: 'hemlock-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
