@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   url: 'https://kenstir.github.io',
-  baseUrl: '/',
+  baseUrl: '/hemlock-docs/',
   projectName: 'hemlock-docs',
   organizationName: 'kenstir',
   trailingSlash: false,
