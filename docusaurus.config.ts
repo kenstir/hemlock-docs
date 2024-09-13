@@ -30,26 +30,20 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/kenstir/hemlock-docs/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   feedOptions: {
+        //     type: ['rss', 'atom'],
+        //     xslt: true,
+        //   },
+        //   editUrl: 'https://github.com/kenstir/hemlock-docs/',
+        //   // Useful options to enforce blogging best practices
+        //   onInlineTags: 'warn',
+        //   onInlineAuthors: 'warn',
+        //   onUntruncatedBlogPosts: 'warn',
+        // },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -59,23 +53,23 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    // image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
-      logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
-      },
+      title: 'Home',
+      // logo: {
+      //   alt: 'My Site Logo',
+      //   src: 'img/logo.svg',
+      // },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docsSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/kenstir/hemlock-docs',
           label: 'GitHub',
           position: 'right',
         },
