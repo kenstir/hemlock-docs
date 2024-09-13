@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Hemlock',
-  tagline: 'mobile apps for Evergreen(tm) libraries',
+  title: 'Hemlock Docs',
+  tagline: 'Hemlock is the mobile apps for Evergreen™ libraries',
   favicon: 'img/favicon.ico',
 
   url: 'https://kenstir.github.io',
@@ -30,20 +30,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // editUrl: 'https://github.com/kenstir/hemlock-docs/',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   feedOptions: {
-        //     type: ['rss', 'atom'],
-        //     xslt: true,
-        //   },
-        //   editUrl: 'https://github.com/kenstir/hemlock-docs/',
-        //   // Useful options to enforce blogging best practices
-        //   onInlineTags: 'warn',
-        //   onInlineAuthors: 'warn',
-        //   onUntruncatedBlogPosts: 'warn',
-        // },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -67,7 +54,6 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        // {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/kenstir/hemlock-docs',
           label: 'GitHub',
@@ -90,7 +76,7 @@ const config: Config = {
               href: 'https://github.com/kenstir/hemlock-ios',
             },
             {
-              label: 'Push Notification Service source code',
+              label: 'Push Notification Service Source Code',
               href: 'https://github.com/kenstir/hemlock-sendmsg',
             },
           ],
