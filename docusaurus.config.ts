@@ -88,19 +88,19 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Related Repositories',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Android',
+              href: 'https://github.com/kenstir/hemlock',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'iOS',
+              href: 'https://github.com/kenstir/hemlock-ios',
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              label: 'Push Notification Service',
+              href: 'https://github.com/kenstir/hemlock-sendmsg',
             },
           ],
         },
@@ -108,12 +108,8 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/kenstir/hemlock-docs',
             },
           ],
         },
