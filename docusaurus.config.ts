@@ -79,15 +79,6 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
           title: 'Related Repositories',
           items: [
             {
@@ -101,15 +92,6 @@ const config: Config = {
             {
               label: 'Push Notification Service',
               href: 'https://github.com/kenstir/hemlock-sendmsg',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/kenstir/hemlock-docs',
             },
           ],
         },

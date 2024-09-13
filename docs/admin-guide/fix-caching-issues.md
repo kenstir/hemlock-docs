@@ -6,7 +6,7 @@ it doesn't show up in the app.  The kinds of things cached are:
 * the org tree
 * org settings, e.g. `hemlock.events_calendar_url` or `credit.payments.allow`
 
-For details on how the caching is implemented, see [notes on caching](../notes-on-caching.md).
+For details on how the caching is implemented, see [notes on caching](notes-on-caching.md).
 
 ## How to bust the cache for you yourself right now
 
