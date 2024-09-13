@@ -82,15 +82,15 @@ const config: Config = {
           title: 'Related Repositories',
           items: [
             {
-              label: 'Android',
+              label: 'Android App Source Code',
               href: 'https://github.com/kenstir/hemlock',
             },
             {
-              label: 'iOS',
+              label: 'iOS App Source Code',
               href: 'https://github.com/kenstir/hemlock-ios',
             },
             {
-              label: 'Push Notification Service',
+              label: 'Push Notification Service source code',
               href: 'https://github.com/kenstir/hemlock-sendmsg',
             },
           ],
