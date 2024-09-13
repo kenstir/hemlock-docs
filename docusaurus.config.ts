@@ -30,7 +30,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/kenstir/hemlock-docs/',
+          // editUrl: 'https://github.com/kenstir/hemlock-docs/',
         },
         // blog: {
         //   showReadingTime: true,
