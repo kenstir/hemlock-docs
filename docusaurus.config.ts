@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Hemlock Docs',
-  tagline: 'Hemlock is the mobile apps for Evergreen™ libraries',
+  tagline: 'Hemlock is the mobile app for Evergreen™ libraries',
   favicon: 'img/favicon.ico',
 
   url: 'https://kenstir.github.io',
@@ -65,19 +65,31 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Related Repositories',
           items: [
             {
-              label: 'Android App Source Code',
+              label: 'Android App',
               href: 'https://github.com/kenstir/hemlock',
             },
+          ],
+        },{
+          items: [
             {
-              label: 'iOS App Source Code',
+              label: 'iOS App',
               href: 'https://github.com/kenstir/hemlock-ios',
             },
+          ],
+        },{
+          items: [
             {
-              label: 'Push Notification Service Source Code',
+              label: 'Push Notification Service',
               href: 'https://github.com/kenstir/hemlock-sendmsg',
+            },
+          ],
+        },{
+          items: [
+            {
+              label: 'Evergreen',
+              href: 'https://evergreen-ils.org/',
             },
           ],
         },
