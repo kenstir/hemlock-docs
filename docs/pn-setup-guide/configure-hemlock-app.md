@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 ---
-# Push Notifications: Configure the Hemlock app
+# Configure the Hemlock app
 
 This guide is for the mobile app developer.
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 ---
-# Push Notifications: Create an action trigger
+# Create an action trigger
 
 This guide is for the Evergreen Administrator.
 It will help you set up your Evergreen (EG) server for sending a push notifications with an action trigger.  It assumes that your System Administrator has already installed the `hemlock-sendmsg` daemon, and it's listening on `localhost:8842`.

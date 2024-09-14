@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 ---
-# Push Notifications: Install the hemlock-sendmsg daemon
+# Install the hemlock-sendmsg daemon
 
 This guide is for the Evergreen System Administrator.
 

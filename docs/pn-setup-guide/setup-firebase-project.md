@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# Push Notifications: Set up the Firebase project
+# Set up the Firebase project
 
 This guide is for the administrator of the Firebase project associated with your app.  If I released your app, you already have a Firebase project.  Contact me for an invitation.
 
