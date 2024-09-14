@@ -1,6 +1,6 @@
-# Debugging Guide for Acorn App Push Notifications
+# Push Notifications Troubleshooting Guide
 
-This guide provides steps to troubleshoot issues with push notifications in the Acorn app using the `hemlock-sendmsg` daemon. Follow these steps to identify and resolve problems with notifications on both iOS and Android devices.
+This guide provides steps to troubleshoot issues with push notifications using the `hemlock-sendmsg` daemon. Follow these steps to identify and resolve problems with notifications on both iOS and Android devices.
 
 ## Common Issues
 1. **Notifications not received on iOS or Android.**
@@ -12,8 +12,8 @@ This guide provides steps to troubleshoot issues with push notifications in the 
 
 ### 1. Verify Build and Device Registration
 - Ensure that the device has the correct build version of the app:
-  - **Android:** Version should be 3.1.0.6. Check via `Play Store >> Profile Icon >> Manage apps & device >> Acorn >> About this app`.
-  - **iOS:** Version should be 3.1.0 (2). Check via TestFlight or App Store.
+  - **Android:** Version should be at least 3.1.0.x. Check via `Play Store >> Profile Icon >> Manage apps & device >> Acorn >> About this app`.
+  - **iOS:** Version should be at least 3.1.0 (x). Check via TestFlight or App Store.
 - Confirm the device is registered to receive push notifications:
   - Only one device can be registered for push notifications per patron account. The last device to log in will be the active one.
 
@@ -46,6 +46,7 @@ This guide provides steps to troubleshoot issues with push notifications in the 
   ~~~bash
   git pull
   make
+  sudo make install
   sudo systemctl restart hemlock-sendmsg
   ~~~
 - Check the daemon output for correct startup and notification processing:
@@ -98,4 +99,4 @@ This guide provides steps to troubleshoot issues with push notifications in the 
 2. Ensure that the `hemlock-sendmsg` daemon is updated and configured properly.
 
 ## Additional Notes
-- The `hemlock-sendmsg` daemon has a new feature that allows filtering out patrons who do not have accounts in the app (EmptyToken metric). Refer to the [README](https://github.com/kenstir/hemlock-sendmsg/blob/main/README.md#collecting-metrics) for more details.
+- The `hemlock-sendmsg` daemon filters out requests with an empty `token` parameter, so it does not attempt to send a push notification to a patron that does not use the app.  The `EmptyToken` metric tracks the number of such requests. Refer to the [README](https://github.com/kenstir/hemlock-sendmsg/blob/main/README.md#collecting-metrics) for more details.
