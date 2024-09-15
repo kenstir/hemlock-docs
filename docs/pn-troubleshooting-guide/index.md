@@ -1,28 +1,33 @@
+---
+sidebar_position: 3
+---
 # Push Notifications Troubleshooting Guide
 
 This guide provides steps to troubleshoot issues with push notifications using the `hemlock-sendmsg` daemon. Follow these steps to identify and resolve problems with notifications on both iOS and Android devices.
 
-## Common Issues
-1. **Notifications not received on iOS or Android.**
-2. **Notifications received, but they do not open the correct screen.**
-3. **Push notifications work on one platform but not the other.**
-4. **Receiving errors when sending push notifications manually.**
-
 ## General Debugging Steps
 
-### 1. Verify Build and Device Registration
-- Ensure that the device has the correct build version of the app:
-  - **Android:** Version should be at least 3.1.0.x. Check via `Play Store >> Profile Icon >> Manage apps & device >> Acorn >> About this app`.
-  - **iOS:** Version should be at least 3.1.0 (x). Check via TestFlight or App Store.
-- Confirm the device is registered to receive push notifications:
-  - Only one device can be registered for push notifications per patron account. The last device to log in will be the active one.
+### Verify App Version
+<details>
+Ensure that the device has the correct build version of the app:
+- **Android:** Version should be at least 3.1.0.x. Check via `Play Store >> Profile Icon >> Manage apps & device >> Acorn >> About this app`.
+- **iOS:** Version should be at least 3.1.0 (x). Check via TestFlight or App Store.
+</details>
 
-### 2. Check Notification Permissions
-- Ensure that notifications are enabled for the app:
-  - **iOS:** Go to `Settings >> Notifications >> Acorn Catalog` and allow notifications.
-  - **Android:** Ensure notification permissions are granted in `Settings >> Apps >> Acorn >> Notifications`.
+### Only One Device per Account
+<details>
+Only **one device per patron account** can be registered for push notifications. The last device to log in will be the active one.
+</details>
+
+### Check Notification Permissions
+<details>
+Ensure that notifications are enabled for the app:
+- **iOS:** Go to `Settings >> Notifications >> Acorn Catalog` and allow notifications.
+- **Android:** Ensure notification permissions are granted in `Settings >> Apps >> Acorn >> Notifications`.
+</details>
 
 ### 3. Test Push Notifications Manually
+<details>
 - Use `curl` to manually send a push notification to the device:
   - Obtain the push notification token by querying the database.
   
@@ -37,10 +42,14 @@ This guide provides steps to troubleshoot issues with push notifications using t
     curl -F token="$token" -F title="New Message" -F body="Test Notification" -F type=holds -F debug=1 http://localhost:8842/send
     ```
   
-- Check for errors:
-  - If you see "Auth error from APNS or Web Push Service," ensure the APNs Authentication Key is correctly configured in the Firebase project.
+- Watch for errors in the `hemlock-sendmsg` output:
+  ```bash
+  sudo journalctl -fu hemlock-sendmsg
+  ```
+</details>
 
-### 4. Verify `hemlock-sendmsg` Daemon Status
+### Verify Latest `hemlock-sendmsg` Daemon
+<details>
 - Ensure the `hemlock-sendmsg` daemon is updated to the latest version.
 - Restart the daemon after pulling the latest code:
   ~~~bash
@@ -58,8 +67,10 @@ This guide provides steps to troubleshoot issues with push notifications using t
     ~~~
     2024/09/05 11:10:02 INFO GET /send result=ok code=200 username=xxx title="xxx" type="holds" body="xxx" token=xxx
     ~~~
+</details>
 
-### 5. Confirm Action Trigger Configuration
+### Confirm Action Trigger Configuration
+<details>
 - Ensure that the action triggers are correctly configured in Evergreen:
   - Example action trigger for hold notifications:
     ~~~xml
@@ -73,30 +84,46 @@ This guide provides steps to troubleshoot issues with push notifications using t
     </Parameters>
     ~~~
 - Confirm that the `type` parameter is correctly set to target specific screens (`holds`, `checkouts`, etc.).
+</details>
 
-### 6. Verify Firebase and APNs Configuration
-- Ensure that the Firebase project has the correct APNs key and Team ID set up.
-- If notifications work for some types but not others, ensure that all notification types are registered correctly in the app's source code.
+## Specific Troubleshooting Steps
 
-## Specific Troubleshooting Steps for Common Scenarios
+### General Scenarios
 
-### A. iOS Notifications Not Working
-1. Ensure the device is the last one to sign in.
-2. Verify the APNs configuration in Firebase.
-3. Test manually with `curl` and check for errors related to authentication.
+#### iOS Notifications Not Working
+<details>
+1. Ensure the device is the last one to sign in (force quit the app and sign in again).
+2. Test manually with `curl` and check for errors in the `hemlock-sendmsg` output.
+</details>
 
-### B. Android Notifications Not Working
+#### Android Notifications Not Working
+<details>
+1. Ensure the device is the last one to sign in (force quit the app and sign in again).
 1. Verify that the app build is up-to-date.
-2. Check notification channels registered in the app's settings.
-3. Ensure the daemon sets the `type` correctly for selective disabling by channel.
+1. Check notification channels registered in the app's settings.
+1. Ensure the daemon sets the `type` correctly for selective disabling by channel.
+</details>
 
-### C. Notifications Open Incorrect Screens
+#### Notification Opens the Wrong Screen in the App
+<details>
 1. Ensure the `type` parameter in the action trigger is correct.
 2. Verify that the app's code correctly handles the `type` parameter and routes to the appropriate screen.
+3. (Android only) Verify the app is registering the channel (search for "notification_channel_register_checkouts_channel").
+</details>
 
-### D. Errors When Sending Notifications Manually
-1. Check for missing or incorrect parameters in the `curl` command.
-2. Ensure that the `hemlock-sendmsg` daemon is updated and configured properly.
+### Errors in the `hemlock-sendmsg` output
+
+#### "Auth error from APNS or Web Push Service"
+<details>
+1. Ensure the APNs Authentication Key is correctly configured in the Firebase project.
+</details>
+
+### Errors in the app
+
+#### "500 Error" after signing in
+<details>
+1. Ensure the User Setting Type is created.  After signing in, the app tries to store the push notification token in the database, and it gets this error if the User Setting Type is missing.  See [Push Notification Setup Guide](../pn-setup-guide/create-an-action-trigger).
+</details>
 
 ## Additional Notes
 - The `hemlock-sendmsg` daemon filters out requests with an empty `token` parameter, so it does not attempt to send a push notification to a patron that does not use the app.  The `EmptyToken` metric tracks the number of such requests. Refer to the [README](https://github.com/kenstir/hemlock-sendmsg/blob/main/README.md#collecting-metrics) for more details.
