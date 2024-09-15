@@ -122,7 +122,7 @@ Ensure that notifications are enabled for the app:
 
 #### "500 Error" after signing in
 <details>
-1. Ensure the User Setting Type is created.  After signing in, the app tries to store the push notification token in the database, and it gets this error if the User Setting Type is missing.  See [Push Notification Setup Guide](../pn-setup-guide/create-an-action-trigger).
+1. Ensure the User Setting Type is created.  After signing in, the app tries to store the push notification token in the database, and it gets this error if the User Setting Type is missing.  See [Push Notification Setup Guide](../pn-setup-guide/create-an-action-trigger.md).
 </details>
 
 ## Additional Notes
