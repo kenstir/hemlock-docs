@@ -12,6 +12,7 @@ These docs are published to https://kenstir.github.io/hemlock-docs/ from the `ma
    ```bash
    npm ci
    npm start
+   # or: npm run start -- --host 0.0.0.0
    ```
 1. Build and check for broken links
    ```bash
