@@ -21,3 +21,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.buttons:not(:last-child) {
+  margin-bottom: 1rem; /* Adjust the value as needed */
+}

@@ -24,6 +24,13 @@ function HomepageHeader() {
             Hemlock Administrator's Guide
           </Link>
         </div>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/user-guide">
+            Hemlock User's Guide
+          </Link>
+        </div>
       </div>
     </header>
   );
