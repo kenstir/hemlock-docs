@@ -18,11 +18,16 @@ As an EG admin, login to the Staff client and go to Server Administration >> Use
 
 Procedure:
 * Click `New User Setting Type`
-* Set Datatype to "string"
-* Set Description to "Data stored by the Hemlock app for patrons that have opted into push notifications"
-* Set Label to "Hemlock Push Notification data"
-* Set Name to "hemlock.push_notification_data"
-* Check OPAC/Patron Visible
+* Set the following form values:
+
+    | Label               | Value                                                                              |
+    | ------------------- | ---------------------------------------------------------------------------------- |
+    | Datatype            | string                                                                             |
+    | Description         | Data stored by the Hemlock app for patrons that have opted into push notifications |
+    | Label               | Hemlock Push Notification data                                                     |
+    | Name                | hemlock.push_notification_data                                                     |
+    | OPAC/Patron Visible | checked                                                                            |
+
 * Click `Save`
 
 ## Create an Action Trigger
@@ -37,7 +42,7 @@ Procedure:
 * Set the following form values:
 
     | Label                          | Value                          |
-    |--------------------------------|--------------------------------|
+    | ------------------------------ | ------------------------------ |
     | Owning Library                 | CONS                           |
     | Hook                           | checkout.due                   |
     | Processing Delay               | -300 days                      |
@@ -67,6 +72,11 @@ url http://localhost:8842/send
 <Parameters>
   title Courtesy Notice
   body You have a item due
+
+  # the push notification type (optional)
+  # controls the app screen that launches when you tap the notification. 
+  # fines, general, holds, pmc, checkouts
+  type checkouts
 
   # if the patron is not a mobile app user, token will be empty;
   # this does no harm and allows hemlock-sendmsg to keep a metric of all send attempts
