@@ -1,7 +1,8 @@
 ---
+
 sidebar_position: 4
 ---
-# Create an action trigger
+# Configure Evergreen Action Triggers
 
 This guide is for the Evergreen Administrator.
 It will help you set up your Evergreen (EG) server for sending a push notifications with an action trigger.  It assumes that your System Administrator has already installed the `hemlock-sendmsg` daemon, and it's listening on `localhost:8842`.
@@ -37,7 +38,29 @@ The action trigger uses the CallHTTP reactor to send a request to the hemlock-se
 
 As an EG admin, login to the Staff client and go to Local Administration >> Notifications / Action Triggers.
 
-Procedure:
+Checkout the [Evergreen Action Trigger documentation](https://docs.evergreen-ils.org/docs/latest/admin/actiontriggers.html) for more information.
+
+### Cloning an Existing Action Trigger
+
+:::tip
+Cloning an existing action trigger is a good way to start especially if you are not familiar with action triggers. It is easier to modify an existing action trigger than to create one from scratch and can help reduce errors and save time on troubleshooting.
+ - Make sure that you clone a working action trigger.
+ - Clone an action trigger that uses the same hook as the one you want to create.
+:::
+
+1. Right click an existing event definition and click `Clone Selected` or select the event definition and click `Clone Selected` from the Actions menu.
+2. When prompted to clone the environment, select `Yes`.
+3. Set the reactor to `CallHTTP`.
+4. Set the template according to the [sample template](#sample-template) below.
+
+### Creating an Action Trigger from Scratch
+
+:::warning
+Creating an action trigger from scratch can be tricky as the environment and parameters of action triggers can be complex. Only create an action trigger from scratch if you are certain you can do so.
+:::
+
+This example event definition is for a courtesy notice. Some details may need to be adjusted for your specific use case. It is most important to set the reactor to `CallHTTP` and the template according to the [sample template](#sample-template) below.
+
 * Click `New Event Definition`
 * Set the following form values:
 
@@ -53,13 +76,15 @@ Procedure:
     | Event Repeatability Delay      | 00:00:00                       |
     | Max Event Validity Delay       | -300 days                      |
     | Retention Interval             | 6 mons                         |
-    | Template                       | (see below)                    |
+    | Template                       | [(see below)](#sample-template)          |
     | Context Bib Path               | target_copy.call_number.record |
     | Context Item Path              | target_copy                    |
     | Context Library Path           | circ_lib                       |
     | Context User Path              | usr                            |
 
-* Set the Template form value to
+### Sample Template
+
+Whether cloning an existing action trigger or creating a new one, the template should be set as follows. The parameters `title`, `body`, and `type` will vary depending on the type of notification you want to send.
 
 ```
 method get
