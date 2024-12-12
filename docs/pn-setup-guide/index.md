@@ -13,4 +13,4 @@ Setup involves the following steps (and the following people):
 * [Set up the Firebase project (Mobile App Admin)](setup-firebase-project.md)
 * [Configure the Hemlock app (Mobile App Developer)](configure-hemlock-app.md)
 * [Install the hemlock-sendmsg daemon (Evergreen System Admin)](install-sendmsg-daemon.md)
-* [Create an action trigger (Evergreen Admin)](create-an-action-trigger.md)
+* [Configure Evergreen Action Triggers (Evergreen Admin)](configure-evergreen.md)
