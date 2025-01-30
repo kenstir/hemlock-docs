@@ -8,12 +8,12 @@ This guide is for the Evergreen Administrator.
 It will help you set up your Evergreen (EG) server for sending a push notifications with an action trigger.  It assumes that your System Administrator has already installed the `hemlock-sendmsg` daemon, and it's listening on `localhost:8842`.
 
 The process is:
-* Create a User Setting Type
+* Create User Setting Types
 * Create an Action Trigger
 
-## Create a User Setting Type
+## Create User Setting Types
 
-This procedure creates a new User Setting Type for the app to store its push notification token.  This token uniquely identifies the app installation, and is required to send a push notification to a specific patron account.
+This procedure creates two new User Setting Types for the app to store its push notification token and an enabled flag.  The token uniquely identifies the app installation, and is required to send a push notification to a specific patron account.  The boolean flag can be used as an opt-in setting type on any action triggers that send push notifications.
 
 As an EG admin, login to the Staff client and go to Server Administration >> User Setting Types.
 
@@ -24,9 +24,21 @@ Procedure:
     | Label               | Value                                                                              |
     | ------------------- | ---------------------------------------------------------------------------------- |
     | Datatype            | string                                                                             |
-    | Description         | Data stored by the Hemlock app for patrons that have opted into push notifications |
-    | Label               | Hemlock Push Notification data                                                     |
+    | Description         | Used by the Hemlock app to store a patron's push notification token                |
+    | Label               | Hemlock Push Notification Data                                                     |
     | Name                | hemlock.push_notification_data                                                     |
+    | OPAC/Patron Visible | checked                                                                            |
+
+* Click `Save`
+* Click `New User Setting Type`
+* Set the following form values:
+
+    | Label               | Value                                                                              |
+    | ------------------- | ---------------------------------------------------------------------------------- |
+    | Datatype            | bool                                                                               |
+    | Description         | Used by the Hemlock app to flag that a patron has a push notification token        |
+    | Label               | Hemlock Push Notification Enabled                                                  |
+    | Name                | hemlock.push_notification_enabled                                                  |
     | OPAC/Patron Visible | checked                                                                            |
 
 * Click `Save`
@@ -73,8 +85,10 @@ This example event definition is for a courtesy notice. Some details may need to
     | Processing Group Context Field | usr                            |
     | Reactor                        | CallHTTP                       |
     | Validator                      | CircIsOpen                     |
-    | Event Repeatability Delay      | 00:00:00                       |
+    | Event Repeatability Delay      | 00:00:30                       |
     | Max Event Validity Delay       | -300 days                      |
+    | Opt-In Setting Type            | hemlock.push_notification_enabled |
+    | Opt-In User Field              | usr                               |
     | Retention Interval             | 6 mons                         |
     | Template                       | [(see below)](#sample-template)          |
     | Context Bib Path               | target_copy.call_number.record |
