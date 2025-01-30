@@ -25,7 +25,7 @@ Procedure:
     | ------------------- | ---------------------------------------------------------------------------------- |
     | Datatype            | string                                                                             |
     | Description         | Used by the Hemlock app to store a patron's push notification token                |
-    | Label               | Hemlock Push Notification data                                                     |
+    | Label               | Hemlock Push Notification Data                                                     |
     | Name                | hemlock.push_notification_data                                                     |
     | OPAC/Patron Visible | checked                                                                            |
 
