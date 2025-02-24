@@ -27,7 +27,7 @@ Procedure:
     | Description         | Used by the Hemlock app to store a patron's push notification token                |
     | Label               | Hemlock Push Notification Data                                                     |
     | Name                | hemlock.push_notification_data                                                     |
-    | OPAC/Patron Visible | checked                                                                            |
+    | OPAC/Patron Visible | not checked                                                                        |
 
 * Click `Save`
 * Click `New User Setting Type`
@@ -39,7 +39,7 @@ Procedure:
     | Description         | Used by the Hemlock app to flag that a patron has a push notification token        |
     | Label               | Hemlock Push Notification Enabled                                                  |
     | Name                | hemlock.push_notification_enabled                                                  |
-    | OPAC/Patron Visible | checked                                                                            |
+    | OPAC/Patron Visible | not checked                                                                        |
 
 * Click `Save`
 
