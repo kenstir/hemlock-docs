@@ -22,7 +22,7 @@ This guide is for the mobile app developer.
   * Close Xcode, then edit the project.pbxproj to fix the relative path `CODE_SIGN_ENTITLEMENTS = Source/pines_app/PINES.entitlements;`
 * Define `USE_FCM` (or `USE_FA`) in the Build Settings of the project
   * Under "Build Settings", find "Swift Compiler - Custom Flags"
-  * Under "Active Compilation Conditions", add "USE_FCM" for Any Architecture | Any SDK
+  * Under "Active Compilation Conditions", under both DEBUG and RELEASE, click the `+` and add "USE_FCM" for Any Architecture | Any SDK
 * Configure for DWARF with dSYM files
   * Under "Build Settings", find "Build Options"
   * For "Debug Information Format", choose "DWARF with dSYM files"
@@ -31,6 +31,6 @@ This guide is for the mobile app developer.
   * Click "+" and add projects
     - FirebaseAnalyticsWithoutAdIdSupport
     - FirebaseCrashlytics
-  * NB: If you don't see the package you may need to quick Xcode and maybe delete the directory `~/Library/Developer/Xcode/DerivedData`
+  * NB: If you don't see the package you may need to quit Xcode and maybe delete the directory `~/Library/Developer/Xcode/DerivedData`
 * Configure Xcode to produce and upload dSYMs for Crashlytics per the [Firebase instructions](https://firebase.google.com/docs/crashlytics/get-started?platform=ios#set-up-dsym-uploading)
 * Optionally enable the Firebase Console Debug View by adding `-FIRDebugEnabled` and `-FIRDebugDisabled` to your build scheme per the [Crashlytics >> Test your implementation](https://firebase.google.com/docs/crashlytics/test-implementation?platform=ios)
