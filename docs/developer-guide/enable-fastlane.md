@@ -28,7 +28,7 @@ Create a key:
 * From the `Add Key` menu, select `Create new key`
 * Chose JSON
 * Click `Create` to create and download the key
-* Rename the key to `secret/**project-name**-fastlane.json`
+* Move the key to `secret/**project-name**-fastlane.json`
 
 ### Bootstrap Fastlane in the repo
 
@@ -36,11 +36,11 @@ Create a key:
   ```bash
   p=pines
   mkdir -p ${p}_app/fastlane/metadata/android/en-US/changelogs
-  cp hemlock_app/fastlane/*file ${p}_app/fastlane/
+  cp noble_app/fastlane/*file ${p}_app/fastlane/
   ```
 * Edit `Appfile` to fix package name and json key path
   ```
-  perl -p -i -e "s/hemlock/${p}/g" ${p}_app/fastlane/Appfile
+  perl -p -i -e "s/noble/${p}/g" ${p}_app/fastlane/Appfile
   ```
 
 ### Invite the service account to the Play Console
