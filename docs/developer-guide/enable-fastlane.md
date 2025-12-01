@@ -57,6 +57,6 @@ Create a key:
 ### Test Fastlane access
 
 ```bash
-cd pines_app
-fastlane validate_setup
+cd ${p}_app
+fastlane run validate_play_store_json_key
 ```
