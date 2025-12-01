@@ -30,6 +30,17 @@ Create a key:
 * Click `Create` to create and download the key
 * Move the key to `secret/**project-name**-fastlane.json`
 
+### Invite the service account to the Play Console
+
+* Open the [Play Console](https://play.google.com/console)
+* Choose `Users and permissions` from the left menu
+* Click `Invite new users`
+* Use the service account email (from the JSON key file)
+* Under App permissions, select `Add app`
+* Select the app
+* Grant `Admin (all permissions)` access
+* Click `Invite user`
+
 ### Bootstrap Fastlane in the repo
 
 * Copy the fastlane files from an existing app to the app directory
@@ -42,17 +53,6 @@ Create a key:
   ```
   perl -p -i -e "s/noble/${p}/g" ${p}_app/fastlane/Appfile
   ```
-
-### Invite the service account to the Play Console
-
-* Open the [Play Console](https://play.google.com/console)
-* Choose `Users and permissions` from the left menu
-* Click `Invite new users`
-* Use the service account email (from the JSON key file)
-* Under App permissions, select `Add app`
-* Select the app
-* Grant `Admin (all permissions)` access
-* Click `Invite user`
 
 ### Test Fastlane access
 
