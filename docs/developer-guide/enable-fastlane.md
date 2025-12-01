@@ -4,7 +4,7 @@
 
 ### Enable API access
 
-* Open the [Google Play Developer API page](https://console.developers.google.com/apis/api/androidpublisher.googleapis.com/)
+* Open the [Google Play Android Developer API page](https://console.developers.google.com/apis/api/androidpublisher.googleapis.com/)
 * Select the project in the top bar
 * Click `Enable` to enable the API
 
@@ -47,7 +47,7 @@ Create a key:
 
 * Open the [Play Console](https://play.google.com/console)
 * Choose `Users and permissions` from the left menu
-* Click `Invite new user`
+* Click `Invite new users`
 * Use the service account email (from the JSON key file)
 * Under App permissions, select `Add app`
 * Select the app
