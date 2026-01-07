@@ -91,7 +91,7 @@ fastlane run validate_play_store_json_key
 
 * Stay on the [Google Analytics](https://analytics.google.com/analytics/web) "property"
 * Click the gear icon (Admin) on the lower left
-* Click `Account access management`
+* Click `Property access management`
 * Click `+` then `Add users`
   - Enter the service account email address
   - Select role of "Viewer"
@@ -99,5 +99,5 @@ fastlane run validate_play_store_json_key
 ### Test Fastlane access
 
 ```bash
-tools/fl $p print_active_users
+tools/fl $p query_active_users
 ```
