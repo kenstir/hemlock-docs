@@ -3,9 +3,9 @@ title: "Privacy Policy | OWWL Library System"
 ---
 # Privacy Policy | OWWL Library System
 
-![OWWL Logo](./owwl-icon.webp)
+[apps by kenstir](https://play.google.com/store/apps/developer?id=apps+by+kenstir)
 
-by [apps by kenstir](https://play.google.com/store/apps/developer?id=apps+by+kenstir)
+![OWWL Logo](./owwl-icon.webp)
 
 ## Introduction
 
